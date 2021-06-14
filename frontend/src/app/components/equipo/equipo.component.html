@@ -1,0 +1,146 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form #equipoForm="ngForm" (ngSubmit)="agregarEquipo(equipoForm)">
+                    <tr>
+                        <td colspan="2">
+                            <p>Registrar equipos</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nombre" placeholder="Nombre del equipo"
+                                    [(ngModel)]="equipoService.selectedEquipo.nombre">
+                            </div>
+
+                        </td>
+                        <td>
+                            <button class="btn btn-primary btn-sm"><q>Ingresar</q></button>
+                        </td>
+                    </tr>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Equipo</th>
+                    <th>PJ</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let equipo of equipoService.equipos">
+                    <td>{{equipo.nombre}}</td>
+                    <td>{{equipo.partidosjugados}}</td>
+                    <td>{{equipo.puntos}}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="borrarEquipo(equipo.nombre)">
+                            <i class="material-icons">delete</i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-text">
+        <ol>TABLA DE POSICIONES</ol>
+    </span>
+</nav>
+<!-- -------------------------------------------------------------------------------------------------- -->
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Equipo</th>
+                    <th>PJ</th>
+                    <th>Puntos</th>
+                    <th>DG</th>
+                    <th>GF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let equipo of equipoService.equipos">
+                    <td>{{equipo.id}}</td>
+                    <td>{{equipo.nombre}}</td>
+                    <td>{{equipo.partidosjugados}}</td>
+                    <td>{{equipo.puntos}}</td>
+                    <td>{{equipo.difgol}}</td>
+                    <td>{{equipo.golfavor}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form #partidoForm="ngForm" (ngSubmit)="partido(partidoForm)">
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p>Partido</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nombre1" placeholder="Equipo 1"
+                                    [(ngModel)]="equipoService.partido.nombre1">
+                            </div>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nombre2" placeholder="Equipo 2"
+                                    [(ngModel)]="equipoService.partido.nombre2">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p>Marcador:</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="goles1" placeholder="Goles"
+                                    [(ngModel)]="equipoService.partido.goles1">
+                            </div>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="goles2" placeholder="Goles"
+                                    [(ngModel)]="equipoService.partido.goles2">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-primary btn">Listo</button>
+                        </td>
+                        <td></td>
+                    </tr>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+p {
+    color: darkslategrey;
+    font-size: x-large;
+}
+
+q {
+    font-size:large;
+}
+
+ol {
+    color:brown;
+    font-size: xx-large;
+    text-align: right;
+}
+td {
+    align-items: center;
+}
